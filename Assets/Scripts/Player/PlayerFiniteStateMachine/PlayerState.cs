@@ -35,7 +35,7 @@ public class PlayerState
     public virtual void Exit()
     {
         player.Anim.SetBool(animationBoolName, false);
-        isExitingState = false;
+        isExitingState = true;
     }
 
     public virtual void LogicUpdate()

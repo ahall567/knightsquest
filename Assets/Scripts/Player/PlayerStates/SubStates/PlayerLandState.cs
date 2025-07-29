@@ -13,7 +13,7 @@ public class PlayerLandState : PlayerGroundedState
 
         if (!isExitingState)
         {
-            if (xinput != 0)
+            if (xInput != 0)
             {
                 stateMachine.ChangeState(player.MoveState);
             }

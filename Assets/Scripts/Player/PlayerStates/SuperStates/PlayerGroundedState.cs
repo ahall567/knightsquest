@@ -1,14 +1,19 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerGroundedState : PlayerState
 {
-
-    protected int xinput;
+    // Input
+    protected int xInput;
 
     private bool jumpInput;
     private bool grabInput;
+    private bool dashInput;
+
+    // Checks
     private bool isGrounded;
     private bool isTouchingWall;
+    private bool isTouchingLedge;
 
     public PlayerGroundedState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animationBoolName) : base(player, stateMachine, playerData, animationBoolName)
     {
@@ -20,6 +25,7 @@ public class PlayerGroundedState : PlayerState
 
         isGrounded = player.CheckIfGrounded();
         isTouchingWall = player.CheckIfTouchingWall();
+        isTouchingLedge = player.CheckIfTouchingLedge();
     }
 
     public override void Enter()
@@ -27,6 +33,7 @@ public class PlayerGroundedState : PlayerState
         base.Enter();
 
         player.JumpState.ResetAmountOfJumpsLeft();
+        player.DashState.ResetCanDash();
     }
 
     public override void Exit()
@@ -39,9 +46,10 @@ public class PlayerGroundedState : PlayerState
         base.LogicUpdate();
 
         // Get inputs
-        xinput = player.InputHandler.NormInputX;
+        xInput = player.InputHandler.NormInputX;
         jumpInput = player.InputHandler.JumpInput;
         grabInput = player.InputHandler.GrabInput;
+        dashInput = player.InputHandler.DashInput;
         
         // On jump input, change to JumpState, if character is not grounded, start CoyoteTime and change to InAirState
         if (jumpInput && player.JumpState.CanJump())
@@ -53,9 +61,13 @@ public class PlayerGroundedState : PlayerState
             player.InAirState.StartCoyoteTime();
             stateMachine.ChangeState(player.InAirState);
         }
-        else if(isTouchingWall && grabInput)
+        else if(isTouchingWall && grabInput && isTouchingLedge)
         {
             stateMachine.ChangeState(player.WallGrabState);
+        }
+        else if (dashInput && player.DashState.CheckIfCanDash())
+        {
+            stateMachine.ChangeState(player.DashState);
         }
     }
 
