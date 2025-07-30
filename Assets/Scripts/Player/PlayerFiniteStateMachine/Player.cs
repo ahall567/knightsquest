@@ -161,8 +161,8 @@ public class Player : MonoBehaviour
         RaycastHit2D xHit = Physics2D.Raycast(wallCheck.position, Vector2.right * FacingDirection, playerData.wallCheckDistance, playerData.whatIsGround);
         float xDistance = xHit.distance;
         // Get distance between ledgeCheck Raycast and distance from wall determined previously
-        workspace.Set(xDistance * FacingDirection, 0f);
-        RaycastHit2D yHit = Physics2D.Raycast(ledgeCheck.position + (Vector3)(workspace), Vector2.down, ledgeCheck.position.y - wallCheck.position.y, playerData.whatIsGround);
+        workspace.Set((xDistance + 0.015f) * FacingDirection, 0f);
+        RaycastHit2D yHit = Physics2D.Raycast(ledgeCheck.position + (Vector3)(workspace), Vector2.down, ledgeCheck.position.y - wallCheck.position.y + 0.015f, playerData.whatIsGround);
         float yDist = yHit.distance;
 
         // Use the two distances to determine position of corner of wall
