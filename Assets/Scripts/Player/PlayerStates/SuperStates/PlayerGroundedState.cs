@@ -55,18 +55,25 @@ public class PlayerGroundedState : PlayerState
         jumpInput = player.InputHandler.JumpInput;
         grabInput = player.InputHandler.GrabInput;
         dashInput = player.InputHandler.DashInput;
-        
-        // On jump input, change to JumpState, if character is not grounded, start CoyoteTime and change to InAirState
-        if (jumpInput && player.JumpState.CanJump())
+
+        if (player.InputHandler.AttackInputs[(int)CombatInputs.primary] && !isTouchingCeiling)
+        {
+            stateMachine.ChangeState(player.PrimaryAttackState);
+        }
+        else if (player.InputHandler.AttackInputs[(int)CombatInputs.secondary] && !isTouchingCeiling)
+        {
+            stateMachine.ChangeState(player.SecondaryAttackState);
+        }
+        else if (jumpInput && player.JumpState.CanJump() && !isTouchingCeiling)
         {
             stateMachine.ChangeState(player.JumpState);
         }
-        else if(!isGrounded)
+        else if (!isGrounded)
         {
             player.InAirState.StartCoyoteTime();
             stateMachine.ChangeState(player.InAirState);
         }
-        else if(isTouchingWall && grabInput && isTouchingLedge)
+        else if (isTouchingWall && grabInput && isTouchingLedge)
         {
             stateMachine.ChangeState(player.WallGrabState);
         }
