@@ -1,8 +1,25 @@
+using KnightsQuest.Weapons;
 using UnityEngine;
 
 public class PlayerAttackState : PlayerAbilityState
 {
-    public PlayerAttackState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animationBoolName) : base(player, stateMachine, playerData, animationBoolName)
+    private Weapon weapon;
+
+    public PlayerAttackState(
+        Player player,
+        PlayerStateMachine stateMachine,
+        PlayerData playerData,
+        string animationBoolName,
+        Weapon weapon
+        ) : base(player, stateMachine, playerData, animationBoolName)
     {
+        this.weapon = weapon;
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+
+        weapon.Enter();
     }
 }

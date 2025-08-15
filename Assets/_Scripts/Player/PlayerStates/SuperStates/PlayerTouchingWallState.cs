@@ -74,7 +74,7 @@ public class PlayerTouchingWallState : PlayerState
         {
             stateMachine.ChangeState(player.IdleState);
         }
-        else if(!isTouchingWall || (xInput != Movement.FacingDirection && !grabInput))
+        else if(!isTouchingWall || (xInput != Movement?.FacingDirection && !grabInput))
         {
             stateMachine.ChangeState(player.InAirState);
         }

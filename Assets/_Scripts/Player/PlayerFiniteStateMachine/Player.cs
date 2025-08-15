@@ -1,3 +1,4 @@
+using KnightsQuest.Weapons;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -36,15 +37,20 @@ public class Player : MonoBehaviour
 
     #region Other Variables
 
-    // public int core.Movement.FacingDirection {  get; private set; }
-
     private Vector2 workspace;
+
+    private Weapon primaryWeapon;
+    private Weapon secondaryWeapon;
+
     #endregion
 
     #region Unity Callback Functions
     private void Awake() // Awake is called on every object at the start of the scene
     {
         Core = GetComponentInChildren<Core>();
+
+        primaryWeapon = transform.Find("PrimaryWeapon").GetComponent<Weapon>();
+        secondaryWeapon = transform.Find("SecondaryWeapon").GetComponent<Weapon>();
 
         StateMachine = new PlayerStateMachine();
 
@@ -61,8 +67,8 @@ public class Player : MonoBehaviour
         DashState = new PlayerDashState(this, StateMachine, playerData, "move");
         CrouchIdleState = new PlayerCrouchIdleState(this, StateMachine, playerData, "crouchIdle");
         CrouchMoveState = new PlayerCrouchMoveState(this, StateMachine, playerData, "crouchMove");
-        PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
-        SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
+        PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack", primaryWeapon);
+        SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack", secondaryWeapon);
     }
 
     private void Start() // Start is called on the frame when a script is enabled
