@@ -14,6 +14,8 @@ public class PlayerAttackState : PlayerAbilityState
         ) : base(player, stateMachine, playerData, animationBoolName)
     {
         this.weapon = weapon;
+
+        weapon.OnExit += ExitHandler;
     }
 
     public override void Enter()
@@ -21,5 +23,11 @@ public class PlayerAttackState : PlayerAbilityState
         base.Enter();
 
         weapon.Enter();
+    }
+
+    private void ExitHandler()
+    {
+        AnimationFinishTrigger();
+        isAbilityDone = true;
     }
 }
