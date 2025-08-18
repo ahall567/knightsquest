@@ -15,10 +15,13 @@ namespace KnightsQuest.Weapons
             private set => currentAttackCounter = value >= numberOfAttacks ? 0 : value;
         }
 
+        public event Action OnEnter;
         public event Action OnExit;
 
+        public GameObject BaseGameObject { get; private set; }
+        public GameObject WeaponSpriteGameObject { get;  private set; }
+
         private Animator anim;
-        private GameObject baseGameObject;
         private AnimationEventHandler eventHandler;
         private int currentAttackCounter;
 
@@ -32,6 +35,8 @@ namespace KnightsQuest.Weapons
 
             anim.SetBool("active", true);
             anim.SetInteger("counter", CurrentAttackCounter);
+
+            OnEnter?.Invoke();
         }
 
         private void Exit()
@@ -46,9 +51,12 @@ namespace KnightsQuest.Weapons
 
         private void Awake()
         {
-            baseGameObject = transform.Find("Base").gameObject;
-            anim = baseGameObject.GetComponent<Animator>();
-            eventHandler = baseGameObject.GetComponent<AnimationEventHandler>();
+            BaseGameObject = transform.Find("Base").gameObject;
+            WeaponSpriteGameObject = transform.Find("WeaponSprite").gameObject;
+
+            anim = BaseGameObject.GetComponent<Animator>();
+
+            eventHandler = BaseGameObject.GetComponent<AnimationEventHandler>();
 
             attackCounterResetTimer = new Timer(attackCounterResetCooldown);
         }
