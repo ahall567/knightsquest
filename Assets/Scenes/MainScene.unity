@@ -316,6 +316,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 795438124270401489, guid: 9728a7f2a15d41846bc5f1eb7f732ab3, type: 3}
+      propertyPath: <Data>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 51afd72fbc5f928478212d2bc473bbcf, type: 2}
+    - target: {fileID: 795438124270401489, guid: 9728a7f2a15d41846bc5f1eb7f732ab3, type: 3}
       propertyPath: attackCounterResetCooldown
       value: 0.25
       objectReference: {fileID: 0}
@@ -113184,6 +113188,10 @@ PrefabInstance:
       propertyPath: numberOfAttacks
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 795438124270401489, guid: 9728a7f2a15d41846bc5f1eb7f732ab3, type: 3}
+      propertyPath: <Data>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: e1acbc894930b974fa854dd569f97851, type: 2}
     - target: {fileID: 795438124270401489, guid: 9728a7f2a15d41846bc5f1eb7f732ab3, type: 3}
       propertyPath: attackCounterResetCooldown
       value: 0.25

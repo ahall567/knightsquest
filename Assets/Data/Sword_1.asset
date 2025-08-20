@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f08cffc02dfa3b438028ed223046d16, type: 3}
+  m_Name: Sword_1
+  m_EditorClassIdentifier: 
+  <NumberOfAttacks>k__BackingField: 3
+  <componentData>k__BackingField:
+  - rid: 8883907085819707480
+  references:
+    version: 2
+    RefIds:
+    - rid: 8883907085819707480
+      type: {class: WeaponSpriteData, ns: KnightsQuest.Weapons.Components.ComponentData, asm: Assembly-CSharp}
+      data:
+        <AttackData>k__BackingField:
+        - <Sprites>k__BackingField:
+          - {fileID: 1563905169154104396, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
+          - {fileID: -3550173072336979144, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
+          - {fileID: 4889145841166417184, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
+          - {fileID: -3982350979535627284, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
+          - {fileID: 4154993073663332193, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
+        - <Sprites>k__BackingField:
+          - {fileID: 348283174051915213, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
+          - {fileID: -2012990298322354105, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
+          - {fileID: 6433806057711052182, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
+          - {fileID: -8488898039661933713, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
+          - {fileID: 2951854367162982478, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
+        - <Sprites>k__BackingField:
+          - {fileID: 506518714420903615, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
+          - {fileID: 5024343202121071743, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
+          - {fileID: -7004168958555555434, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
+          - {fileID: -4419436354116424143, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
+          - {fileID: 4930491342014096868, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}

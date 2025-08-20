@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using KnightsQuest.Weapons.Components.ComponentData;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,9 +11,9 @@ namespace KnightsQuest.Weapons.Components
         private SpriteRenderer baseSpriteRenderer;
         private SpriteRenderer weaponSpriteRenderer;
 
-        [SerializeField] private WeaponSprites[] weaponSprites;
-
         private int currentWeaponSpriteIndex;
+
+        private WeaponSpriteData data;
 
         protected override void HandleEnter()
         {
@@ -29,7 +30,7 @@ namespace KnightsQuest.Weapons.Components
                 return;
             }
 
-            var currentAttackSprites = weaponSprites[weapon.CurrentAttackCounter].Sprites;
+            var currentAttackSprites = data.AttackData[weapon.CurrentAttackCounter].Sprites;
 
             if (currentWeaponSpriteIndex >= currentAttackSprites.Length)
             {
@@ -48,6 +49,9 @@ namespace KnightsQuest.Weapons.Components
 
             baseSpriteRenderer = transform.Find("Base").GetComponent<SpriteRenderer>();
             weaponSpriteRenderer = transform.Find("WeaponSprite").GetComponent<SpriteRenderer>();
+
+            // Ask for weapon's data from WeaponDataSO
+            data = weapon.Data.GetData<WeaponSpriteData>();
 
             // TODO: Fix this when we create weapon data
             // baseSpriteRenderer = weapon.BaseGameObject.GetComponent<SpriteRenderer>();
@@ -71,11 +75,5 @@ namespace KnightsQuest.Weapons.Components
 
             weapon.OnEnter -= HandleEnter;
         }
-    }
-
-    [Serializable]
-    public class WeaponSprites
-    {
-        [field: SerializeField] public Sprite[] Sprites { get; private set; }
     }
 }
