@@ -10,16 +10,19 @@ namespace KnightsQuest.Weapons
     {
         [field: SerializeField] public int NumberOfAttacks { get; private set; }
 
-        [field: SerializeReference] public List<ComponentData> componentData { get; private set; }
+        [field: SerializeReference] public List<ComponentData> ComponentData { get; private set; }
 
         // WeaponComponents use this function to ask componentData for its specific data.
         public T GetData<T>()
         {
-            return componentData.OfType<T>().FirstOrDefault();
+            return ComponentData.OfType<T>().FirstOrDefault();
         }
 
         // Adds "Add Sprite Data" option to Context Menu of Data Asset
         [ContextMenu("Add Sprite Data")]
-        private void AddSpriteData() => componentData.Add(new WeaponSpriteData());
+        private void AddSpriteData() => ComponentData.Add(new WeaponSpriteData());
+
+        [ContextMenu("Add Movement Data")]
+        private void AddMovementData() => ComponentData.Add(new MovementData());
     }
 }

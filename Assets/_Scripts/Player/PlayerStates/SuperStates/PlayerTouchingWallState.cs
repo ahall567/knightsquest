@@ -1,3 +1,4 @@
+using KnightsQuest.CoreSystem;
 using UnityEngine;
 using UnityEngine.Rendering;
 

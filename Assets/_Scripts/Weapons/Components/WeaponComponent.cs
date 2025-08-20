@@ -1,3 +1,4 @@
+using KnightsQuest.CoreSystem;
 using UnityEngine;
 
 namespace KnightsQuest.Weapons.Components
@@ -6,11 +7,18 @@ namespace KnightsQuest.Weapons.Components
     {
         protected Weapon weapon;
 
+        // TODO: Fix this when finishing weapon data
+        // protected AnimationEventHandler EventHandler => weapon.EventHandler;
+        protected AnimationEventHandler eventHandler;
+        protected Core Core => weapon.Core;
+
         protected bool isAttackActive;
 
         protected virtual void Awake()
         {
             weapon = GetComponent<Weapon>();
+
+            eventHandler = GetComponentInChildren<AnimationEventHandler>();
         }
 
         protected virtual void HandleEnter()

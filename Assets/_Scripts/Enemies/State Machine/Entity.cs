@@ -1,5 +1,6 @@
 using System.Diagnostics.Contracts;
 using UnityEngine;
+using KnightsQuest.CoreSystem;
 
 public class Entity : MonoBehaviour
 {

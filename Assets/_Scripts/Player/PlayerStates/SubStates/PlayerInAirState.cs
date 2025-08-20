@@ -1,3 +1,4 @@
+using KnightsQuest.CoreSystem;
 using Unity.VisualScripting;
 using UnityEngine;
 

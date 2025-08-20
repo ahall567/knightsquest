@@ -1,5 +1,6 @@
-using KnightsQuest.Weapons;
 using UnityEngine;
+using KnightsQuest.Weapons;
+using KnightsQuest.CoreSystem;
 
 public class Player : MonoBehaviour
 {
@@ -51,6 +52,10 @@ public class Player : MonoBehaviour
 
         primaryWeapon = transform.Find("PrimaryWeapon").GetComponent<Weapon>();
         secondaryWeapon = transform.Find("SecondaryWeapon").GetComponent<Weapon>();
+
+        // Pass the core to the Weapon Objects
+        primaryWeapon.SetCore(Core);
+        secondaryWeapon.SetCore(Core);
 
         StateMachine = new PlayerStateMachine();
 

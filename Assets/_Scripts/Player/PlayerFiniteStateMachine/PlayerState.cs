@@ -1,4 +1,5 @@
 using UnityEngine;
+using KnightsQuest.CoreSystem;
 
 public class PlayerState
 {

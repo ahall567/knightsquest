@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using KnightsQuest.Utils;
+using KnightsQuest.CoreSystem;
 
 namespace KnightsQuest.Weapons
 {
@@ -19,11 +20,14 @@ namespace KnightsQuest.Weapons
         public event Action OnEnter;
         public event Action OnExit;
 
+        private Animator anim;
+
         public GameObject BaseGameObject { get; private set; }
         public GameObject WeaponSpriteGameObject { get;  private set; }
+        public AnimationEventHandler EventHandler { get; private set; }
 
-        private Animator anim;
-        private AnimationEventHandler eventHandler;
+        public Core Core { get; private set; }
+
         private int currentAttackCounter;
 
         private Timer attackCounterResetTimer;
@@ -38,6 +42,11 @@ namespace KnightsQuest.Weapons
             anim.SetInteger("counter", CurrentAttackCounter);
 
             OnEnter?.Invoke();
+        }
+
+        public void SetCore(Core core)
+        {
+            Core = core;
         }
 
         private void Exit()
@@ -57,7 +66,7 @@ namespace KnightsQuest.Weapons
 
             anim = BaseGameObject.GetComponent<Animator>();
 
-            eventHandler = BaseGameObject.GetComponent<AnimationEventHandler>();
+            EventHandler = BaseGameObject.GetComponent<AnimationEventHandler>();
 
             attackCounterResetTimer = new Timer(attackCounterResetCooldown);
         }
@@ -71,13 +80,13 @@ namespace KnightsQuest.Weapons
 
         private void OnEnable()
         {
-            eventHandler.OnFinish += Exit;
+            EventHandler.OnFinish += Exit;
             attackCounterResetTimer.OnTimerDone += ResetAttackCounter;
         }
 
         private void OnDisable()
         {
-            eventHandler.OnFinish -= Exit;
+            EventHandler.OnFinish -= Exit;
             attackCounterResetTimer.OnTimerDone -= ResetAttackCounter;
         }
     }

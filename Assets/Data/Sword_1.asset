@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Sword_1
   m_EditorClassIdentifier: 
   <NumberOfAttacks>k__BackingField: 3
-  <componentData>k__BackingField:
+  <ComponentData>k__BackingField:
   - rid: 8883907085819707480
+  - rid: 8883907085819707487
   references:
     version: 2
     RefIds:
@@ -40,3 +41,13 @@ MonoBehaviour:
           - {fileID: -7004168958555555434, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
           - {fileID: -4419436354116424143, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
           - {fileID: 4930491342014096868, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
+    - rid: 8883907085819707487
+      type: {class: MovementData, ns: KnightsQuest.Weapons.Components.ComponentData, asm: Assembly-CSharp}
+      data:
+        <AttackData>k__BackingField:
+        - <Direction>k__BackingField: {x: 1, y: 0}
+          <Velocity>k__BackingField: 3
+        - <Direction>k__BackingField: {x: 1, y: 0}
+          <Velocity>k__BackingField: 4
+        - <Direction>k__BackingField: {x: 1, y: 5}
+          <Velocity>k__BackingField: 5

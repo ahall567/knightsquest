@@ -1,17 +1,20 @@
 using UnityEngine;
 
-public class CoreComponent : MonoBehaviour, ILogicUpdate
+namespace KnightsQuest.CoreSystem
 {
-    protected Core core;
-
-
-    protected virtual void Awake()
+    public class CoreComponent : MonoBehaviour, ILogicUpdate
     {
-        core = transform.parent.GetComponent<Core>();
+        protected Core core;
 
-        if (core == null) { Debug.LogError("Ther is no Core on the parent"); }
-        core.AddComponent(this);
+
+        protected virtual void Awake()
+        {
+            core = transform.parent.GetComponent<Core>();
+
+            if (core == null) { Debug.LogError("Ther is no Core on the parent"); }
+            core.AddComponent(this);
+        }
+
+        public virtual void LogicUpdate() { }
     }
-
-    public virtual void LogicUpdate() { }
 }
