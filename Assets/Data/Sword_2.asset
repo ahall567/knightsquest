@@ -20,7 +20,7 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 8883907085819707481
-      type: {class: WeaponSpriteData, ns: KnightsQuest.Weapons.Components.ComponentData, asm: Assembly-CSharp}
+      type: {class: WeaponSpriteData, ns: KnightsQuest.Weapons.Components, asm: Assembly-CSharp}
       data:
         <AttackData>k__BackingField:
         - <Sprites>k__BackingField:
@@ -42,7 +42,7 @@ MonoBehaviour:
           - {fileID: 7140637095282058511, guid: a102feeb9b157cd4c88035d99e67e521, type: 3}
           - {fileID: 1676215412216277647, guid: a102feeb9b157cd4c88035d99e67e521, type: 3}
     - rid: 8883907085819707488
-      type: {class: MovementData, ns: KnightsQuest.Weapons.Components.ComponentData, asm: Assembly-CSharp}
+      type: {class: MovementData, ns: KnightsQuest.Weapons.Components, asm: Assembly-CSharp}
       data:
         <AttackData>k__BackingField:
         - <Direction>k__BackingField: {x: 1, y: 0}

@@ -1,10 +1,10 @@
-using KnightsQuest.Weapons.Components.ComponentData.AttackData;
+using KnightsQuest.Weapons.Components;
 using UnityEngine;
 
-namespace KnightsQuest.Weapons.Components.ComponentData
+namespace KnightsQuest.Weapons.Components
 {
-    public class WeaponSpriteData : ComponentData
+    public class WeaponSpriteData : ComponentData<AttackSprites>
     {
-        [field: SerializeField] public AttackSprites[] AttackData { get; set; }
+        
     }
 }

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using KnightsQuest.Weapons.Components.ComponentData;
+using KnightsQuest.Weapons.Components;
 using UnityEngine;
 
 namespace KnightsQuest.Weapons

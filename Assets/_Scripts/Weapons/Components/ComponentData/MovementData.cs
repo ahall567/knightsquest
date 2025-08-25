@@ -1,11 +1,10 @@
-using System;
-using KnightsQuest.Weapons.Components.ComponentData.AttackData;
+using KnightsQuest.Weapons.Components;
 using UnityEngine;
 
-namespace KnightsQuest.Weapons.Components.ComponentData
+namespace KnightsQuest.Weapons.Components
 {
-    public class MovementData : ComponentData
+    public class MovementData : ComponentData<AttackMovement>
     {
-        [field: SerializeField] public AttackMovement[] AttackData { get; private set; }
+        
     }
 }

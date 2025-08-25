@@ -1,19 +1,18 @@
 using System;
 using System.ComponentModel;
-using KnightsQuest.Weapons.Components.ComponentData;
 using Unity.VisualScripting;
 using UnityEngine;
 
 namespace KnightsQuest.Weapons.Components
 {
-    public class WeaponSprite : WeaponComponent
+    // Inherits from the WeaponComponent class, specifying WeaponSpriteData as the type
+    public class WeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprites>
     {
         private SpriteRenderer baseSpriteRenderer;
         private SpriteRenderer weaponSpriteRenderer;
 
         private int currentWeaponSpriteIndex;
 
-        private WeaponSpriteData data;
 
         protected override void HandleEnter()
         {
@@ -30,7 +29,7 @@ namespace KnightsQuest.Weapons.Components
                 return;
             }
 
-            var currentAttackSprites = data.AttackData[weapon.CurrentAttackCounter].Sprites;
+            var currentAttackSprites =currentAttackData.Sprites;
 
             if (currentWeaponSpriteIndex >= currentAttackSprites.Length)
             {
@@ -49,9 +48,6 @@ namespace KnightsQuest.Weapons.Components
 
             baseSpriteRenderer = transform.Find("Base").GetComponent<SpriteRenderer>();
             weaponSpriteRenderer = transform.Find("WeaponSprite").GetComponent<SpriteRenderer>();
-
-            // Ask for weapon's data from WeaponDataSO
-            data = weapon.Data.GetData<WeaponSpriteData>();
 
             // TODO: Fix this when we create weapon data
             // baseSpriteRenderer = weapon.BaseGameObject.GetComponent<SpriteRenderer>();
