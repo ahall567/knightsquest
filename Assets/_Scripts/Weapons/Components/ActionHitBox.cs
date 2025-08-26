@@ -18,8 +18,8 @@ namespace KnightsQuest.Weapons.Components
         {
             // offset is used to position the HitBox
             offset.Set(
-                transform.position.x + (currentAttackData.HitBox.x * movement.Comp.FacingDirection),
-                transform.position.y + currentAttackData.HitBox.y
+                transform.position.x + (currentAttackData.HitBox.center.x * movement.Comp.FacingDirection),
+                transform.position.y + currentAttackData.HitBox.center.y
             );
 
             // Get a list of all detected objects
@@ -63,7 +63,7 @@ namespace KnightsQuest.Weapons.Components
             eventHandler.OnAttackAction -= HandleAttackAction;
         }
 
-        // Draw the hitbox for the current attack sprite
+        // Draw the hitbox for the selected attack animation
         private void OnDrawGizmosSelected()
         {
             if (data == null)
