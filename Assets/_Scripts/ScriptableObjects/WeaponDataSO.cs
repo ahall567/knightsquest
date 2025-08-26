@@ -18,11 +18,14 @@ namespace KnightsQuest.Weapons
             return ComponentData.OfType<T>().FirstOrDefault();
         }
 
-        // Adds "Add Sprite Data" option to Context Menu of Data Asset
-        [ContextMenu("Add Sprite Data")]
-        private void AddSpriteData() => ComponentData.Add(new WeaponSpriteData());
+        // Add a new ComponentData
+        public void AddData(ComponentData data)
+        {
+            // Make sure a ComponentData of this type does not already exist
+            if (ComponentData.FirstOrDefault(t => t.GetType() == data.GetType()) != null)
+                return;
 
-        [ContextMenu("Add Movement Data")]
-        private void AddMovementData() => ComponentData.Add(new MovementData());
+            ComponentData.Add(data);
+        }
     }
 }
