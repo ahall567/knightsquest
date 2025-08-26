@@ -23,20 +23,24 @@ MonoBehaviour:
     - rid: 8883907085819707480
       type: {class: WeaponSpriteData, ns: KnightsQuest.Weapons.Components, asm: Assembly-CSharp}
       data:
-        <AttackData>k__BackingField:
-        - <Sprites>k__BackingField:
+        name: WeaponSpriteData
+        attackData:
+        - name: Attack 1
+          <Sprites>k__BackingField:
           - {fileID: 1563905169154104396, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
           - {fileID: -3550173072336979144, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
           - {fileID: 4889145841166417184, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
           - {fileID: -3982350979535627284, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
           - {fileID: 4154993073663332193, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
-        - <Sprites>k__BackingField:
+        - name: Attack 2
+          <Sprites>k__BackingField:
           - {fileID: 348283174051915213, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
           - {fileID: -2012990298322354105, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
           - {fileID: 6433806057711052182, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
           - {fileID: -8488898039661933713, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
           - {fileID: 2951854367162982478, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
-        - <Sprites>k__BackingField:
+        - name: Attack 3
+          <Sprites>k__BackingField:
           - {fileID: 506518714420903615, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
           - {fileID: 5024343202121071743, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
           - {fileID: -7004168958555555434, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
@@ -45,14 +49,46 @@ MonoBehaviour:
     - rid: 8883907085819707487
       type: {class: MovementData, ns: KnightsQuest.Weapons.Components, asm: Assembly-CSharp}
       data:
-        <AttackData>k__BackingField:
-        - <Direction>k__BackingField: {x: 1, y: 0}
+        name: MovementData
+        attackData:
+        - name: Attack 1
+          <Direction>k__BackingField: {x: 1, y: 0}
           <Velocity>k__BackingField: 3
-        - <Direction>k__BackingField: {x: 1, y: 0}
+        - name: Attack 2
+          <Direction>k__BackingField: {x: 1, y: 0}
           <Velocity>k__BackingField: 4
-        - <Direction>k__BackingField: {x: 1, y: 5}
+        - name: Attack 3
+          <Direction>k__BackingField: {x: 1, y: 5}
           <Velocity>k__BackingField: 5
     - rid: 8883907219826409566
       type: {class: ActionHitBoxData, ns: KnightsQuest.Weapons.Components, asm: Assembly-CSharp}
       data:
-        <AttackData>k__BackingField: []
+        name: ActionHitBoxData
+        attackData:
+        - name: Attack 1
+          Debug: 0
+          <HitBox>k__BackingField:
+            serializedVersion: 2
+            x: 0.13
+            y: -1.03
+            width: 1.77
+            height: 1.86
+        - name: Attack 2
+          Debug: 0
+          <HitBox>k__BackingField:
+            serializedVersion: 2
+            x: 0.13
+            y: -1.03
+            width: 1.77
+            height: 1.86
+        - name: Attack 3
+          Debug: 1
+          <HitBox>k__BackingField:
+            serializedVersion: 2
+            x: 0.13
+            y: -1.03
+            width: 1.32
+            height: 2.4
+        <DetectableLayers>k__BackingField:
+          serializedVersion: 2
+          m_Bits: 512
