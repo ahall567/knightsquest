@@ -9,7 +9,6 @@ using System.Linq;
 namespace KnightsQuest.Weapons
 {
     [CustomEditor(typeof(WeaponDataSO))]
-
     public class WeaponDataSOEditor : Editor
     {
         // List to hold MovementData and WeaponSpriteData

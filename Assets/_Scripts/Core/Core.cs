@@ -1,17 +1,16 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 namespace KnightsQuest.CoreSystem
-{ 
+{
     public class Core : MonoBehaviour
     {
         private readonly List<CoreComponent> CoreComponents = new List<CoreComponent>();
 
         private void Awake()
         {
-        
+
         }
 
         public void LogicUpdate()
@@ -30,13 +29,13 @@ namespace KnightsQuest.CoreSystem
             }
         }
 
-        public T GetCoreComponent<T>() where T: CoreComponent
+        public T GetCoreComponent<T>() where T : CoreComponent
         {
             var comp = CoreComponents.OfType<T>().FirstOrDefault();
 
             if (comp)
                 return comp;
-        
+
             comp = GetComponentInChildren<T>();
 
             if (comp)
@@ -44,6 +43,12 @@ namespace KnightsQuest.CoreSystem
 
             Debug.LogWarning($"{typeof(T)} not found on {transform.parent.name}.");
             return null;
+        }
+
+        public T GetCoreComponent<T>(ref T value) where T : CoreComponent
+        {
+            value = GetCoreComponent<T>();
+            return value;
         }
     }
 }

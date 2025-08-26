@@ -16,6 +16,7 @@ MonoBehaviour:
   <ComponentData>k__BackingField:
   - rid: 8883907085819707481
   - rid: 8883907085819707488
+  - rid: 8883907219826409567
   references:
     version: 2
     RefIds:
@@ -51,3 +52,7 @@ MonoBehaviour:
           <Velocity>k__BackingField: 4
         - <Direction>k__BackingField: {x: 1, y: 5}
           <Velocity>k__BackingField: 5
+    - rid: 8883907219826409567
+      type: {class: ActionHitBoxData, ns: KnightsQuest.Weapons.Components, asm: Assembly-CSharp}
+      data:
+        <AttackData>k__BackingField: []
