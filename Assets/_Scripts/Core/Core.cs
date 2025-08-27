@@ -31,11 +31,13 @@ namespace KnightsQuest.CoreSystem
 
         public T GetCoreComponent<T>() where T : CoreComponent
         {
+            // Look for Core Component of a specific type
             var comp = CoreComponents.OfType<T>().FirstOrDefault();
 
             if (comp)
                 return comp;
 
+            // If comp is null, see if we can find the Component in children
             comp = GetComponentInChildren<T>();
 
             if (comp)

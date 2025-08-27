@@ -5,7 +5,7 @@ namespace KnightsQuest.Weapons.Components
 {
     public class MovementData : ComponentData<AttackMovement>
     {
-        public MovementData()
+        protected override void SetComponentDependency()
         {
             // Set Component Depency to Movement
             ComponentDependency = typeof(Movement);

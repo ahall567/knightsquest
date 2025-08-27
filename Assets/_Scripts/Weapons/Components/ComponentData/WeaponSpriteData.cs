@@ -5,7 +5,7 @@ namespace KnightsQuest.Weapons.Components
 {
     public class WeaponSpriteData : ComponentData<AttackSprites>
     {
-        public WeaponSpriteData()
+        protected override void SetComponentDependency()
         {
             // Set Component Dependency to WeaponSprite
             ComponentDependency = typeof(WeaponSprite);

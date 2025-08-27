@@ -18,6 +18,7 @@ MonoBehaviour:
   - rid: 8883907085819707488
   - rid: 8883907219826409567
   - rid: 8883907244611076173
+  - rid: 8883907244611076196
   references:
     version: 2
     RefIds:
@@ -104,3 +105,17 @@ MonoBehaviour:
           <Amount>k__BackingField: 10
         - name: Attack 3
           <Amount>k__BackingField: 15
+    - rid: 8883907244611076196
+      type: {class: KnockBackData, ns: KnightsQuest.Weapons.Components, asm: Assembly-CSharp}
+      data:
+        name: KnockBackData
+        attackData:
+        - name: Attack 1
+          <Angle>k__BackingField: {x: 1, y: 1}
+          <Strength>k__BackingField: 10
+        - name: Attack 2
+          <Angle>k__BackingField: {x: 1, y: 1}
+          <Strength>k__BackingField: 15
+        - name: Attack 3
+          <Angle>k__BackingField: {x: 1, y: 3}
+          <Strength>k__BackingField: 20

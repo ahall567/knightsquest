@@ -4,7 +4,7 @@ using UnityEngine;
 namespace KnightsQuest.Weapons.Components
 {
     [Serializable]
-    public class ComponentData
+    public abstract class ComponentData
     {
         [SerializeField, HideInInspector] private string name;
 
@@ -13,21 +13,24 @@ namespace KnightsQuest.Weapons.Components
 
         public ComponentData()
         {
-            // Set Component Name any time a new instance is created
+            // Set Component Name and Dependencies any time a new instance is created
             SetComponentName();
+            SetComponentDependency();
         }
 
         // Sets the name of the Inspector Element to the Component's name
         public void SetComponentName() => name = GetType().Name;
 
-        public virtual void SetAttackDataNames() {}
+        protected abstract void SetComponentDependency();
+
+        public virtual void SetAttackDataNames() { }
         
         public virtual void InitializeAttackData(int numberOfAttacks){}
     }
 
     // Allows for WeaponComponent to call specifically for AttackData
     [Serializable]
-    public class ComponentData<T> : ComponentData where T : AttackData
+    public abstract class ComponentData<T> : ComponentData where T : AttackData
     {
         [SerializeField] private T[] attackData;
         public T[] AttackData { get => attackData; private set => attackData = value; }
