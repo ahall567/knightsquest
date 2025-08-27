@@ -1,39 +1,33 @@
-using System;
+using KnightsQuest.CoreSystem.StatsSystem;
 using UnityEngine;
 
 namespace KnightsQuest.CoreSystem
 {
     public class Stats : CoreComponent
     {
-        public event Action OnHealthZero;
+        [field: SerializeField] public Stat Health { get; private set; }
+        [field: SerializeField] public Stat Poise { get; private set; }
 
-        [SerializeField] private float maxHealth;
-        private float currentHealth;
+        [SerializeField] private float poiseRecoveryRate;
 
         protected override void Awake()
         {
             base.Awake();
 
-            currentHealth = maxHealth;
+            Health.Init();
+            Poise.Init();
         }
 
-        public void DecreaseHealth(float amount)
+        private void Update()
         {
-            currentHealth -= amount;
+            // If Poise is at max value, do nothing
+            if (Poise.CurrentValue == Poise.MaxValue)
+                return;
 
-            if (currentHealth <= 0)
-            {
-                currentHealth = 0;
+            // Increase poise
+            Poise.Increase(poiseRecoveryRate * Time.deltaTime);
 
-                OnHealthZero?.Invoke();
-
-                Debug.Log("Health is zero!!");
-            }
         }
 
-        public void IncreaseHealth(float amount)
-        {
-            currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        }
     }
 }

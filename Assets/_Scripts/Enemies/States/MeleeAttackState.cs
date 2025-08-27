@@ -1,4 +1,5 @@
 using KnightsQuest.CoreSystem;
+using KnightsQuest.Interfaces;
 using UnityEngine;
 
 public class MeleeAttackState : AttackState

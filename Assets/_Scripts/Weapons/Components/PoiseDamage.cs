@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace KnightsQuest.Weapons.Components
 {
-    public class Damage : WeaponComponent<DamageData, AttackDamage>
+    public class PoiseDamage : WeaponComponent<PoiseDamageData, AttackPoiseDamage>
     {
         private ActionHitBox hitBox;
 
@@ -11,11 +11,11 @@ namespace KnightsQuest.Weapons.Components
         {
             foreach (var item in colliders)
             {
-                // Check if any of the detected objects are damageable
-                if (item.TryGetComponent(out IDamageable damageable))
+                // Check if any of the detected objects are poise damageable
+                if (item.TryGetComponent(out IPoiseDamageable poiseDamageable))
                 {
-                    // Damage the damageable objects
-                    damageable.Damage(currentAttackData.Amount);
+                    // Poise damage the poise damageables
+                    poiseDamageable.DamagePoise(currentAttackData.Amount);
                 }
             }
         }
@@ -24,9 +24,10 @@ namespace KnightsQuest.Weapons.Components
         {
             base.Start();
 
+            // Get reference to the hitbox
             hitBox = GetComponent<ActionHitBox>();
 
-            // Subscribe to OnDetectCollider2D Event
+            // Subscribe to OnDetectCollider2D event with handler
             hitBox.OnDetectCollider2D += HandleDetectCollider2D;
         }
 
@@ -34,6 +35,7 @@ namespace KnightsQuest.Weapons.Components
         {
             base.OnDestroy();
 
+            // Unsubscribe from OnDetectCollider2D event
             hitBox.OnDetectCollider2D -= HandleDetectCollider2D;
         }
     }

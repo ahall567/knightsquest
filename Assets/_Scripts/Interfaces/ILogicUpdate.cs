@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public interface ILogicUpdate
+namespace KnightsQuest.Interfaces
 {
-    void LogicUpdate();
+    public interface ILogicUpdate
+    {
+        void LogicUpdate();
+    }
 }

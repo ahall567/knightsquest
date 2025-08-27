@@ -1,3 +1,4 @@
+using KnightsQuest.Interfaces;
 using UnityEngine;
 
 namespace KnightsQuest.CoreSystem
@@ -6,23 +7,24 @@ namespace KnightsQuest.CoreSystem
     {
         [SerializeField] private GameObject damageParticles;
 
-        // Core Component references
-        private CoreComp<Stats> stats;
-        private CoreComp<ParticleManager> particleManager;
+        private Stats stats;
+        private ParticleManager particleManager;
 
+        // Particle effects and decrease health
         public void Damage(float amount)
         {
             Debug.Log(core.transform.parent.name + " Damaged!");
-            stats.Comp?.DecreaseHealth(amount);
-            particleManager.Comp?.StartParticlesWithRandomRotation(damageParticles);
+            stats.Health.Decrease(amount);
+            particleManager.StartParticlesWithRandomRotation(damageParticles);
         }
 
         protected override void Awake()
         {
             base.Awake();
 
-            stats = new CoreComp<Stats>(core);
-            particleManager = new CoreComp<ParticleManager>(core);
+            // Get Core Component references
+            stats = core.GetCoreComponent<Stats>();
+            particleManager = core.GetCoreComponent<ParticleManager>();
         }
     }
 }

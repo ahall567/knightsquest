@@ -1,3 +1,4 @@
+using KnightsQuest.Interfaces;
 using UnityEngine;
 
 public class CombatTestDummy : MonoBehaviour, IDamageable

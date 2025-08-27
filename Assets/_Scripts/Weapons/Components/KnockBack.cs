@@ -1,3 +1,4 @@
+using KnightsQuest.Interfaces;
 using UnityEngine;
 
 namespace KnightsQuest.Weapons.Components
@@ -12,8 +13,10 @@ namespace KnightsQuest.Weapons.Components
         {
             foreach (var item in colliders)
             {
+                // Check if any of the detected objects are knockbackable
                 if (item.TryGetComponent(out IKnockBackable knockBackable))
                 {
+                    // Knockback the knockbackable objects
                     knockBackable.KnockBack(currentAttackData.Angle, currentAttackData.Strength, movement.FacingDirection);
                 }
             }

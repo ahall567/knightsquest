@@ -26,6 +26,7 @@ public class Enemy1 : Entity
     {
         base.Awake();
 
+        // Instantiate states
         moveState = new E1_MoveState(this, stateMachine, "move", moveStateData, this);
         idleState = new E1_IdleState(this, stateMachine, "idle", idleStateData, this);
         playerDetectedState = new E1_PlayerDetectedState(this, stateMachine, "playerDetected", playerDetectedStateData, this);
@@ -34,11 +35,25 @@ public class Enemy1 : Entity
         meleeAttackState = new E1_MeleeAttackState(this, stateMachine, "meleeAttack", meleeAttackPosition, meleeAttackStateData, this);
         stunState = new E1_StunState(this, stateMachine, "stun", stunStateData, this);
         deadState = new E1_DeadState(this, stateMachine, "dead", deadStateData, this);
+
+        // Subscribe to Poise OnCurrentValueZero event with handler
+        stats.Poise.OnCurrentValueZero += HandlePoiseZero;
+    }
+
+    private void HandlePoiseZero()
+    {
+        stateMachine.ChangeState(stunState);
     }
 
     private void Start()
     {
         stateMachine.Initialize(moveState);
+    }
+
+    private void OnDestroy()
+    {
+        // Unsubscribe from Poise OnCurrentValueZero event
+        stats.Poise.OnCurrentValueZero += HandlePoiseZero;
     }
 
     public override void OnDrawGizmos()

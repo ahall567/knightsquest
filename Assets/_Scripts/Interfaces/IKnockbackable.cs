@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public interface IKnockBackable
+namespace KnightsQuest.Interfaces
 {
-    void KnockBack(Vector2 angle, float strength, int direction)
+    public interface IKnockBackable
     {
+        void KnockBack(Vector2 angle, float strength, int direction)
+        {
 
+        }
     }
 }

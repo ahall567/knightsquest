@@ -1,6 +1,10 @@
 using UnityEngine;
 
-public interface IDamageable
+namespace KnightsQuest.Interfaces
 {
-    void Damage(float amount);
+    public interface IDamageable
+    {
+        void Damage(float amount);
+    }
+
 }

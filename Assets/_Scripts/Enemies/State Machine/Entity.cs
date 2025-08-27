@@ -30,6 +30,8 @@ public class Entity : MonoBehaviour
 
     protected bool isStunned;
     protected bool isDead;
+
+    protected Stats stats;
     
 
     public virtual void Awake()
@@ -39,7 +41,10 @@ public class Entity : MonoBehaviour
         currentHealth = entityData.maxHealth;
         currentStunResistance = entityData.stunResistance;
 
-        anim = GetComponent <Animator>();
+        // Get references to Core Components
+        stats = Core.GetCoreComponent<Stats>();
+
+        anim = GetComponent<Animator>();
         atsm = GetComponent<AnimationToStatemachine>();
 
         stateMachine = new FiniteStateMachine();
