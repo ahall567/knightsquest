@@ -6,7 +6,7 @@ namespace KnightsQuest.Weapons.Components
 {
     public class ActionHitBox : WeaponComponent<ActionHitBoxData, AttackActionHitBox>
     {
-        private event Action<Collider2D[]> OnDetectedCollider2D;
+        public event Action<Collider2D[]> OnDetectCollider2D;
 
         private CoreComp<CoreSystem.Movement> movement;
 
@@ -30,13 +30,7 @@ namespace KnightsQuest.Weapons.Components
                 return;
 
             // Raise event with detected objects
-            OnDetectedCollider2D?.Invoke(detected);
-
-            // Print each item name to the console
-            foreach (var item in detected)
-            {
-                Debug.Log(item.name);
-            }
+            OnDetectCollider2D?.Invoke(detected);
 
             // TODO: Add handler for hitbox collision events
         }

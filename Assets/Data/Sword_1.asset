@@ -17,6 +17,7 @@ MonoBehaviour:
   - rid: 8883907085819707480
   - rid: 8883907085819707487
   - rid: 8883907219826409566
+  - rid: 8883907244611076172
   references:
     version: 2
     RefIds:
@@ -92,3 +93,14 @@ MonoBehaviour:
         <DetectableLayers>k__BackingField:
           serializedVersion: 2
           m_Bits: 512
+    - rid: 8883907244611076172
+      type: {class: DamageData, ns: KnightsQuest.Weapons.Components, asm: Assembly-CSharp}
+      data:
+        name: DamageData
+        attackData:
+        - name: Attack 1
+          <Amount>k__BackingField: 5
+        - name: Attack 2
+          <Amount>k__BackingField: 10
+        - name: Attack 3
+          <Amount>k__BackingField: 15

@@ -34,7 +34,6 @@ public class LookForPlayerState : State
     {
         base.Enter();
 
-        Debug.Log("Look for player");
         isAllTurnsDone = false;
         isAllTurnsTimeDone = false;
 

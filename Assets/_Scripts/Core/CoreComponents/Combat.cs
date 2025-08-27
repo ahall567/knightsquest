@@ -3,52 +3,47 @@ using UnityEngine;
 
 namespace KnightsQuest.CoreSystem
 {
-    public class Combat : CoreComponent, IDamageable, IKnockbackable
+    public class KnockBackReceiver : CoreComponent, IKnockBackable
     {
-        [SerializeField] private GameObject damageParticles;
+        [SerializeField] private float maxKnockBackTime = 0.2f;
 
-        protected Movement Movement => movement ? movement : core.GetCoreComponent<Movement>();
-        private CollisionSenses CollisionSenses => collisionSenses ? collisionSenses : core.GetCoreComponent<CollisionSenses>();
-        private Stats Stats => stats ? stats : core.GetCoreComponent<Stats>();
-        private ParticleManager ParticleManager => particleManager ? particleManager : core.GetCoreComponent<ParticleManager>();
+        private bool isKnockBackActive;
+        private float knockBackStartTime;
 
-        private Movement movement;
-        private CollisionSenses collisionSenses;
-        private Stats stats;
-        private ParticleManager particleManager;
-
-        [SerializeField] private float maxKnockbackTime = 0.2f;
-
-        private bool isKnockbackActive;
-        private float knockbackStartTime;
+        // Core Components
+        private CoreComp<Movement> movement;
+        private CoreComp<CollisionSenses> collisionSenses;
 
         public override void LogicUpdate()
         {
-            CheckKnockback();
+            CheckKnockBack();
         }
 
-        public void Damage(float amount)
+
+
+        public void KnockBack(Vector2 angle, float strength, int direction)
         {
-            Debug.Log(core.transform.parent.name + " Damaged!");
-            Stats?.DecreaseHealth(amount);
-            ParticleManager?.StartParticlesWithRandomRotation(damageParticles);
+            movement.Comp?.SetVelocity(strength, angle, direction);
+            movement.Comp.CanSetVelocity = false;
+            isKnockBackActive = true;
+            knockBackStartTime = Time.time;
         }
 
-        public void Knockback(Vector2 angle, float strength, int direction)
+        private void CheckKnockBack()
         {
-            Movement?.SetVelocity(strength, angle, direction);
-            Movement.CanSetVelocity = false;
-            isKnockbackActive = true;
-            knockbackStartTime = Time.time;
-        }
-
-        private void CheckKnockback()
-        {
-            if (isKnockbackActive && ((Movement?.CurrentVelocity.y <= 0.01f && CollisionSenses.Ground) || Time.time >= knockbackStartTime + maxKnockbackTime))
+            if (isKnockBackActive && ((movement.Comp?.CurrentVelocity.y <= 0.01f && collisionSenses.Comp.Ground) || Time.time >= knockBackStartTime + maxKnockBackTime))
             {
-                isKnockbackActive = false;
-                Movement.CanSetVelocity = true;
+                isKnockBackActive = false;
+                movement.Comp.CanSetVelocity = true;
             }
+        }
+
+        protected override void Awake()
+        {
+            base.Awake();
+
+            movement = new CoreComp<Movement>(core);
+            collisionSenses = new CoreComp<CollisionSenses>(core);
         }
     }
 }
