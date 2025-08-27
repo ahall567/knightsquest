@@ -8,6 +8,9 @@ namespace KnightsQuest.Weapons.Components
     {
         [SerializeField, HideInInspector] private string name;
 
+        // Used to specify which type of data a specific component is
+        public Type ComponentDependency { get; protected set; }
+
         public ComponentData()
         {
             // Set Component Name any time a new instance is created

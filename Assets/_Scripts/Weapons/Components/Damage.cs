@@ -19,23 +19,19 @@ namespace KnightsQuest.Weapons.Components
             }
         }
 
-        protected override void Awake()
+        protected override void Start()
         {
-            base.Awake();
+            base.Start();
 
             hitBox = GetComponent<ActionHitBox>();
-        }
 
-        protected override void OnEnable()
-        {
-            base.OnEnable();
-
+            // Subscribe to OnDetectCollider2D Event
             hitBox.OnDetectCollider2D += HandleDetectCollider2D;
         }
 
-        protected override void OnDisable()
+        protected override void OnDestroy()
         {
-            base.OnDisable();
+            base.OnDestroy();
 
             hitBox.OnDetectCollider2D -= HandleDetectCollider2D;
         }

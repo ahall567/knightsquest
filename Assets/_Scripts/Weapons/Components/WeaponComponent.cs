@@ -14,6 +14,11 @@ namespace KnightsQuest.Weapons.Components
 
         protected bool isAttackActive;
 
+        public virtual void Init()
+        {
+            
+        }
+
         protected virtual void Awake()
         {
             weapon = GetComponent<Weapon>();
@@ -23,7 +28,8 @@ namespace KnightsQuest.Weapons.Components
 
         protected virtual void Start()
         {
-            
+            weapon.OnEnter += HandleEnter;
+            weapon.OnExit += HandleExit;
         }
 
         protected virtual void HandleEnter()
@@ -36,13 +42,7 @@ namespace KnightsQuest.Weapons.Components
             isAttackActive = false;
         }
 
-        protected virtual void OnEnable()
-        {
-            weapon.OnEnter += HandleEnter;
-            weapon.OnExit += HandleExit;
-        }
-
-        protected virtual void OnDisable()
+        protected virtual void OnDestroy()
         {
             weapon.OnEnter -= HandleEnter;
             weapon.OnExit -= HandleExit;
@@ -64,9 +64,9 @@ namespace KnightsQuest.Weapons.Components
             currentAttackData = data.AttackData[weapon.CurrentAttackCounter];
         }
 
-        protected override void Awake()
+        public override void Init()
         {
-            base.Awake();
+            base.Init();
 
             // Data for specific component
             data = weapon.Data.GetData<T1>();

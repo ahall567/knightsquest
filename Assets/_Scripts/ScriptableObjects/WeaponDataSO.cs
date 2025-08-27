@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using KnightsQuest.Weapons.Components;
@@ -16,6 +17,12 @@ namespace KnightsQuest.Weapons
         public T GetData<T>()
         {
             return ComponentData.OfType<T>().FirstOrDefault();
+        }
+
+        public List<Type> GetAllDependencies()
+        {
+            // Get a list of dependencies of all components
+            return ComponentData.Select(component => component.ComponentDependency).ToList();
         }
 
         // Add a new ComponentData

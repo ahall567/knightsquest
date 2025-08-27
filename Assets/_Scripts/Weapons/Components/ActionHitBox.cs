@@ -39,20 +39,17 @@ namespace KnightsQuest.Weapons.Components
         {
             base.Start();
 
+            // Subscribe to OnAttackAction event
+            eventHandler.OnAttackAction += HandleAttackAction;
+
             // Give ActionHitBox access to the Movement Core
             movement = new CoreComp<CoreSystem.Movement>(Core);
         }
 
-        protected override void OnEnable()
+        protected override void OnDestroy()
         {
-            base.OnEnable();
-            // Subscribe to OnAttackAction event
-            eventHandler.OnAttackAction += HandleAttackAction;
-        }
-
-        protected override void OnDisable()
-        {
-            base.OnDisable();
+            base.OnDestroy();
+            
             // Unsubscribe from OnAttackAction event
             eventHandler.OnAttackAction -= HandleAttackAction;
         }
