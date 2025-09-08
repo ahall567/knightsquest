@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7695603bc854b134184dcdcf705ea53d, type: 3}
   m_Name: playerData
   m_EditorClassIdentifier: 
-  movementVelocity: 10
+  movementMaxVelocity: 10
+  movementAcceleration: 0.25
+  movementAccelerationAmount: 1.25
+  movementDeceleration: 0.5
+  movementDecelerationAmount: 2.5
   jumpVelocity: 15
   amountOfJumps: 2
   wallJumpVelocity: 20
@@ -24,8 +28,12 @@ MonoBehaviour:
   wallClimbVelocity: 3
   startOffset: {x: 0.4, y: 0.9}
   stopOffset: {x: 1, y: 1}
-  groundCheckRadius: 0.3
-  wallCheckDistance: 0.5
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 256
+  dashCooldown: 0.5
+  dashTime: 0.2
+  dashVelocity: 30
+  drag: 10
+  dashEndYMultiplier: 0.2
+  distBetweenAfterImages: 0.5
+  crouchMovementVelocity: 5
+  crouchColliderHeight: 0.8
+  standColliderHeight: 1.6

@@ -1,3 +1,4 @@
+using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class PlayerMoveState : PlayerGroundedState
@@ -27,11 +28,13 @@ public class PlayerMoveState : PlayerGroundedState
 
         Movement?.CheckIfShouldFlip(xInput);
 
-        Movement?.SetVelocityX(playerData.movementVelocity * xInput);
+        Movement?.ApplyForce(playerData.movementMaxVelocity, xInput, playerData.movementAccelerationAmount, playerData.movementDecelerationAmount);
+        //Movement?.SetVelocityX(playerData.movementVelocity * xInput);
+
 
         if (!isExitingState)
         {
-            if (xInput == 0)
+            if (xInput == 0 && Movement.CurrentVelocity.x <= 0)
             {
                 stateMachine.ChangeState(player.IdleState);
             }

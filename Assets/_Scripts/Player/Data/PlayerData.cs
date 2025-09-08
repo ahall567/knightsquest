@@ -1,14 +1,18 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-[CreateAssetMenu(fileName ="newPlayerData", menuName ="Data/Player_Data/Base_Data")]
+[CreateAssetMenu(fileName = "newPlayerData", menuName = "Data/Player_Data/Base_Data")]
 
 // Holds variables used by Player and PlayerState functions.
 // These can be accessed/changed in Unity Editor under "Player Data" in the "Player Script" component of the Player object
 public class PlayerData : ScriptableObject
 {
     [Header("Move State")]
-    public float movementVelocity = 10;
+    public float movementMaxVelocity = 10;
+    public float movementAcceleration = 1;
+    [HideInInspector] public float movementAccelerationAmount;
+    public float movementDeceleration = 2;
+    [HideInInspector] public float movementDecelerationAmount;
 
     [Header("Jump State")]
     public float jumpVelocity = 15;
@@ -45,4 +49,16 @@ public class PlayerData : ScriptableObject
     public float crouchMovementVelocity = 5f;
     public float crouchColliderHeight = 0.8f;
     public float standColliderHeight = 1.6f;
+
+    // Unity Callback, called when the inspector updates
+    private void OnValidate()
+    {
+        // Calculate move acceleration and deceleration forces
+        movementAccelerationAmount = (50 * movementAcceleration) / movementMaxVelocity;
+        movementDecelerationAmount = (50 * movementDeceleration) / movementMaxVelocity;
+
+        // Clamp the acceleration and deceleration ranges
+        movementAcceleration = Mathf.Clamp(movementAcceleration, 0.01f, movementMaxVelocity);
+        movementDeceleration = Mathf.Clamp(movementDeceleration, 0.01f, movementMaxVelocity);
+    }
 }
