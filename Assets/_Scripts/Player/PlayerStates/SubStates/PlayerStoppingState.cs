@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class PlayerMoveState : PlayerGroundedState
+public class PlayerStoppingState : PlayerGroundedState
 {
-    public PlayerMoveState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animationBoolName) : base(player, stateMachine, playerData, animationBoolName)
+    public PlayerStoppingState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animationBoolName) : base(player, stateMachine, playerData, animationBoolName)
     {
     }
 
@@ -14,6 +14,7 @@ public class PlayerMoveState : PlayerGroundedState
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("Stopping State");
     }
 
     public override void Exit()
@@ -25,25 +26,20 @@ public class PlayerMoveState : PlayerGroundedState
     {
         base.LogicUpdate();
 
-        Movement?.CheckIfShouldFlip(xInput);
-
-        if (!isExitingState)
+        if (xInput == 0 && Mathf.Abs(Movement.CurrentVelocity.x) <= 0.5f)
         {
-            if (xInput == 0)
-            {
-                stateMachine.ChangeState(player.StoppingState);
-            }
-            else if (yInput == -1)
-            {
-                stateMachine.ChangeState(player.CrouchMoveState);
-            }
+            stateMachine.ChangeState(player.IdleState);
+        }
+        else if (xInput != 0)
+        {
+            stateMachine.ChangeState(player.MoveState);
         }
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-        
+
         Movement?.ApplyForce(playerData.movementMaxVelocity, xInput, playerData.movementAccelerationAmount, playerData.movementDecelerationAmount);
     }
 }

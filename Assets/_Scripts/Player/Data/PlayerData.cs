@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Rendering;
 
 [CreateAssetMenu(fileName = "newPlayerData", menuName = "Data/Player_Data/Base_Data")]
 
@@ -8,10 +7,10 @@ using UnityEngine.Rendering;
 public class PlayerData : ScriptableObject
 {
     [Header("Move State")]
-    public float movementMaxVelocity = 10;
-    public float movementAcceleration = 1;
+    public float movementMaxVelocity = 10f;
+    public float movementAcceleration;
     [HideInInspector] public float movementAccelerationAmount;
-    public float movementDeceleration = 2;
+    public float movementDeceleration;
     [HideInInspector] public float movementDecelerationAmount;
 
     [Header("Jump State")]
@@ -54,11 +53,11 @@ public class PlayerData : ScriptableObject
     private void OnValidate()
     {
         // Calculate move acceleration and deceleration forces
-        movementAccelerationAmount = (50 * movementAcceleration) / movementMaxVelocity;
-        movementDecelerationAmount = (50 * movementDeceleration) / movementMaxVelocity;
+        movementAccelerationAmount = ((1 / Time.fixedDeltaTime) * movementAcceleration) / movementMaxVelocity;
+        movementDecelerationAmount = ((1 / Time.fixedDeltaTime) * movementDeceleration) / movementMaxVelocity;
 
         // Clamp the acceleration and deceleration ranges
-        movementAcceleration = Mathf.Clamp(movementAcceleration, 0.01f, movementMaxVelocity);
-        movementDeceleration = Mathf.Clamp(movementDeceleration, 0.01f, movementMaxVelocity);
+        // movementAcceleration = Mathf.Clamp(movementAcceleration, 0.01f, movementMaxVelocity);
+        // movementDeceleration = Mathf.Clamp(movementDeceleration, 0.01f, movementMaxVelocity);
     }
 }

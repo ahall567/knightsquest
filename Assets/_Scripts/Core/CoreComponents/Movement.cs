@@ -42,25 +42,19 @@ namespace KnightsQuest.CoreSystem
             SetFinalVelocity();
         }
 
-        // TODO: Fix this functionality. Right now, the character still slowly moves after changing to idle state.
-        // It also works different when going right vs. Left. Right takes a second to decelerate before stopping, left stops immediatley
-
-        // Testing out the use of Force for movement
+        // Applies "force" to the body, allowing for acceleration/deceleration
         public void ApplyForce(float velocity, int xInput, float acceleration, float deceleration)
         {
-            Debug.Log(CurrentVelocity.x);
-            Debug.Log($"xInput: {xInput}");
             // Calculate speed character wants to get to
             float targetSpeed = xInput * velocity;
 
             // Smooths changes to direction and speed I guess (idk it was in the tutorial, need to mess around with it)
             if (targetSpeed != 0)
             {
-                targetSpeed = Mathf.Lerp(CurrentVelocity.x, targetSpeed, 0.5f);
+                targetSpeed = Mathf.Lerp(CurrentVelocity.x, targetSpeed, 1);
             }
 
-            // Calculate acceleration rate
-            Debug.Log($"targetSpeed Abs: {Mathf.Abs(targetSpeed)}");
+            // If targetSpeed is not 0, get acceleration value, if targetSpeed is 0 get deceleration value
             float accelerationRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : deceleration;
 
             // Don't apply acceleration if player is facing desired direction but at greater speed than max
@@ -68,28 +62,17 @@ namespace KnightsQuest.CoreSystem
             {
                 accelerationRate = 0;
             }
-            Debug.Log($"accelerationRate: {accelerationRate}");
 
-            // Calculate difference between curernt velocity and desired velocity
+            // Calculate difference between current velocity and desired velocity
             float speedDiff = targetSpeed - CurrentVelocity.x;
 
             // Calculate force to apply
-            float force = speedDiff * accelerationRate;
+            float force = Time.fixedDeltaTime * speedDiff * accelerationRate;
 
-            // Apply force, update CurrentVelocity to match
-            RB.AddForce(force * Vector2.right);
-            CurrentVelocity = RB.linearVelocity;
-
+            // Apply force to the body
+            workspace = new Vector2(CurrentVelocity.x + force / RB.mass, CurrentVelocity.y);
+            SetFinalVelocity();
         }
-
-        // public void ApplyFriction()
-        // {
-        //     float amount = Mathf.Min(Mathf.Abs(CurrentVelocity.x), Mathf.Abs(0.2f));
-        //     amount *= Mathf.Sign(CurrentVelocity.x);
-
-        //     RB.AddForce(Vector2.right * -amount, ForceMode2D.Impulse);
-        //     CurrentVelocity = RB.linearVelocity;
-        // }
 
         // Set the body's velocity, specifying an angle
         public void SetVelocity(float velocity, Vector2 angle, int direction)

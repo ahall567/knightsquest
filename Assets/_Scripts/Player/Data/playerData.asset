@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: playerData
   m_EditorClassIdentifier: 
   movementMaxVelocity: 10
-  movementAcceleration: 0.25
-  movementAccelerationAmount: 1.25
-  movementDeceleration: 0.5
-  movementDecelerationAmount: 2.5
+  movementAcceleration: 1.3
+  movementAccelerationAmount: 6.5000024
+  movementDeceleration: 1
+  movementDecelerationAmount: 5.000002
   jumpVelocity: 15
   amountOfJumps: 2
   wallJumpVelocity: 20
