@@ -26,25 +26,21 @@ public class PlayerStoppingState : PlayerGroundedState
     {
         base.LogicUpdate();
 
-        Movement?.ApplyForce(playerData.movementMaxVelocity, 0, playerData.movementAccelerationAmount, playerData.movementDecelerationAmount);
+        Movement?.ApplyForce(playerData.movementMaxVelocity, xInput, playerData.movementAccelerationAmount, playerData.movementDecelerationAmount);
 
-        if (Mathf.Abs(Movement.CurrentVelocity.x) <= 0.1f)
+        if (xInput == 0 && Mathf.Abs(Movement.CurrentVelocity.x) <= 0.5f)
         {
-            if (xInput == 0)
-            {
-                stateMachine.ChangeState(player.IdleState);
-            }
-            else if (xInput != 0)
-            {
-                stateMachine.ChangeState(player.MoveState);
-            }
+            stateMachine.ChangeState(player.IdleState);
         }
-
-        
+        else if (xInput != 0)
+        {
+            stateMachine.ChangeState(player.MoveState);
+        }
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+
     }
 }
