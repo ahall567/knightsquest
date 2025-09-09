@@ -74,6 +74,12 @@ namespace KnightsQuest.CoreSystem
             SetFinalVelocity();
         }
 
+        public void Jump(float jumpVelocity)
+        {
+            workspace = new Vector2(CurrentVelocity.x, CurrentVelocity.y + jumpVelocity);
+            SetFinalVelocity();
+        }
+
         // Set the body's velocity, specifying an angle
         public void SetVelocity(float velocity, Vector2 angle, int direction)
         {

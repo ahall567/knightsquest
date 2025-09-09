@@ -26,6 +26,7 @@ public class PlayerMoveState : PlayerGroundedState
         base.LogicUpdate();
 
         Movement?.CheckIfShouldFlip(xInput);
+        Movement?.ApplyForce(playerData.movementMaxVelocity, xInput, playerData.movementAccelerationAmount, playerData.movementDecelerationAmount);
 
         if (!isExitingState)
         {
@@ -43,7 +44,5 @@ public class PlayerMoveState : PlayerGroundedState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-        
-        Movement?.ApplyForce(playerData.movementMaxVelocity, xInput, playerData.movementAccelerationAmount, playerData.movementDecelerationAmount);
     }
 }
