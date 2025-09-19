@@ -30,11 +30,11 @@ MonoBehaviour:
         attackData:
         - name: Attack 1
           <Sprites>k__BackingField:
-          - {fileID: 1563905169154104396, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
-          - {fileID: -3550173072336979144, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
-          - {fileID: 4889145841166417184, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
-          - {fileID: -3982350979535627284, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
-          - {fileID: 4154993073663332193, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
+          - {fileID: 2589616785960465700, guid: 54cfe828fe67f684f9e7fa71ea08dded, type: 3}
+          - {fileID: -2097903869111517040, guid: 54cfe828fe67f684f9e7fa71ea08dded, type: 3}
+          - {fileID: -119974341257477828, guid: 54cfe828fe67f684f9e7fa71ea08dded, type: 3}
+          - {fileID: 8088098521872453465, guid: 54cfe828fe67f684f9e7fa71ea08dded, type: 3}
+          - {fileID: 1073450575199364725, guid: 54cfe828fe67f684f9e7fa71ea08dded, type: 3}
         - name: Attack 2
           <Sprites>k__BackingField:
           - {fileID: 348283174051915213, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}

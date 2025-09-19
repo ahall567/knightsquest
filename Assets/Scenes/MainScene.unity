@@ -116218,6 +116218,22 @@ PrefabInstance:
       propertyPath: attackCounterResetCooldown
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 1994693809766898984, guid: 9728a7f2a15d41846bc5f1eb7f732ab3, type: 3}
+      propertyPath: m_Size.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994693809766898984, guid: 9728a7f2a15d41846bc5f1eb7f732ab3, type: 3}
+      propertyPath: m_Size.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994693809766898984, guid: 9728a7f2a15d41846bc5f1eb7f732ab3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2589616785960465700, guid: 54cfe828fe67f684f9e7fa71ea08dded, type: 3}
+    - target: {fileID: 1994693809766898984, guid: 9728a7f2a15d41846bc5f1eb7f732ab3, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2993945678824890065, guid: 9728a7f2a15d41846bc5f1eb7f732ab3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -116338,6 +116354,10 @@ PrefabInstance:
       propertyPath: 'weaponSprites.Array.data[2].<Sprites>k__BackingField.Array.data[4]'
       value: 
       objectReference: {fileID: 4930491342014096868, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
+    - target: {fileID: 7016198836691699945, guid: 9728a7f2a15d41846bc5f1eb7f732ab3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2589616785960465700, guid: 54cfe828fe67f684f9e7fa71ea08dded, type: 3}
     - target: {fileID: 8302068774422198104, guid: 9728a7f2a15d41846bc5f1eb7f732ab3, type: 3}
       propertyPath: m_Name
       value: PrimaryWeapon

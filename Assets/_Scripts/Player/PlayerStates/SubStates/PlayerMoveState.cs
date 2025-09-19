@@ -30,7 +30,7 @@ public class PlayerMoveState : PlayerGroundedState
 
         if (!isExitingState)
         {
-            if (xInput == 0)
+            if (xInput == 0 || xInput != Mathf.Sign(Movement.CurrentVelocity.x))
             {
                 stateMachine.ChangeState(player.StoppingState);
             }
