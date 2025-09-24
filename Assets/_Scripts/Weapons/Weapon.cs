@@ -59,14 +59,16 @@ namespace KnightsQuest.Weapons
             anim.SetBool("active", false);
 
             CurrentAttackCounter++;
-            attackCounterResetTimer.StartTimer();
+            // attackCounterResetTimer.StartTimer();
 
             OnExit?.Invoke();
         }
 
         private void Awake()
         {
+            // Get the Base game object from PrimaryWeapon
             BaseGameObject = transform.Find("Base").gameObject;
+            // Get the WeaponSprite from PrimaryWeapon
             WeaponSpriteGameObject = transform.Find("WeaponSprite").gameObject;
 
             anim = BaseGameObject.GetComponent<Animator>();
@@ -83,10 +85,16 @@ namespace KnightsQuest.Weapons
 
         private void ResetAttackCounter() => CurrentAttackCounter = 0;
 
+        private void StartRecovery()
+        {
+            CurrentAttackCounter++;
+        }
+
         private void OnEnable()
         {
             EventHandler.OnFinish += Exit;
-            attackCounterResetTimer.OnTimerDone += ResetAttackCounter;
+            EventHandler.OnRecoveryFinish += ResetAttackCounter;
+            //attackCounterResetTimer.OnTimerDone += ResetAttackCounter;
         }
 
         private void OnDisable()

@@ -30,25 +30,25 @@ MonoBehaviour:
         attackData:
         - name: Attack 1
           <Sprites>k__BackingField:
-          - {fileID: 2589616785960465700, guid: 54cfe828fe67f684f9e7fa71ea08dded, type: 3}
-          - {fileID: -2097903869111517040, guid: 54cfe828fe67f684f9e7fa71ea08dded, type: 3}
-          - {fileID: -119974341257477828, guid: 54cfe828fe67f684f9e7fa71ea08dded, type: 3}
-          - {fileID: 8088098521872453465, guid: 54cfe828fe67f684f9e7fa71ea08dded, type: 3}
-          - {fileID: 1073450575199364725, guid: 54cfe828fe67f684f9e7fa71ea08dded, type: 3}
+          - {fileID: -322203866438495962, guid: 700f5df2ccc0d1846bfc78d4e9d652d4, type: 3}
+          - {fileID: -2392730051291882330, guid: 700f5df2ccc0d1846bfc78d4e9d652d4, type: 3}
+          - {fileID: 5039588087658509471, guid: 700f5df2ccc0d1846bfc78d4e9d652d4, type: 3}
+          - {fileID: 1368769438318866906, guid: 700f5df2ccc0d1846bfc78d4e9d652d4, type: 3}
+          - {fileID: -662949755273626308, guid: 700f5df2ccc0d1846bfc78d4e9d652d4, type: 3}
         - name: Attack 2
           <Sprites>k__BackingField:
-          - {fileID: 348283174051915213, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
-          - {fileID: -2012990298322354105, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
-          - {fileID: 6433806057711052182, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
-          - {fileID: -8488898039661933713, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
-          - {fileID: 2951854367162982478, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
+          - {fileID: -5928061240174214596, guid: 700f5df2ccc0d1846bfc78d4e9d652d4, type: 3}
+          - {fileID: 7094283853853049147, guid: 700f5df2ccc0d1846bfc78d4e9d652d4, type: 3}
+          - {fileID: 6399685397324376707, guid: 700f5df2ccc0d1846bfc78d4e9d652d4, type: 3}
+          - {fileID: 3598431320613557758, guid: 700f5df2ccc0d1846bfc78d4e9d652d4, type: 3}
+          - {fileID: -4506187273861221461, guid: 700f5df2ccc0d1846bfc78d4e9d652d4, type: 3}
         - name: Attack 3
           <Sprites>k__BackingField:
-          - {fileID: 506518714420903615, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
-          - {fileID: 5024343202121071743, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
-          - {fileID: -7004168958555555434, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
-          - {fileID: -4419436354116424143, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
-          - {fileID: 4930491342014096868, guid: f27d8578ad6cbcc498c7e0333b50404c, type: 3}
+          - {fileID: -1717132203239656663, guid: 700f5df2ccc0d1846bfc78d4e9d652d4, type: 3}
+          - {fileID: 988541768041584337, guid: 700f5df2ccc0d1846bfc78d4e9d652d4, type: 3}
+          - {fileID: -4495806074962811676, guid: 700f5df2ccc0d1846bfc78d4e9d652d4, type: 3}
+          - {fileID: -1070428857707135995, guid: 700f5df2ccc0d1846bfc78d4e9d652d4, type: 3}
+          - {fileID: -7148043238830515310, guid: 700f5df2ccc0d1846bfc78d4e9d652d4, type: 3}
     - rid: 8883907085819707487
       type: {class: MovementData, ns: KnightsQuest.Weapons.Components, asm: Assembly-CSharp}
       data:
@@ -59,7 +59,7 @@ MonoBehaviour:
           <Velocity>k__BackingField: 3
         - name: Attack 2
           <Direction>k__BackingField: {x: 1, y: 0}
-          <Velocity>k__BackingField: 4
+          <Velocity>k__BackingField: 6
         - name: Attack 3
           <Direction>k__BackingField: {x: 1, y: 5}
           <Velocity>k__BackingField: 5
@@ -69,29 +69,29 @@ MonoBehaviour:
         name: ActionHitBoxData
         attackData:
         - name: Attack 1
-          Debug: 0
+          Debug: 1
           <HitBox>k__BackingField:
             serializedVersion: 2
             x: 0.13
             y: -1.03
-            width: 1.77
-            height: 1.86
+            width: 1.61
+            height: 1.72
         - name: Attack 2
           Debug: 0
           <HitBox>k__BackingField:
             serializedVersion: 2
             x: 0.13
             y: -1.03
-            width: 1.77
+            width: 1.96
             height: 1.86
         - name: Attack 3
-          Debug: 1
+          Debug: 0
           <HitBox>k__BackingField:
             serializedVersion: 2
             x: 0.13
             y: -1.03
-            width: 1.32
-            height: 2.4
+            width: 1.59
+            height: 3
         <DetectableLayers>k__BackingField:
           serializedVersion: 2
           m_Bits: 512
