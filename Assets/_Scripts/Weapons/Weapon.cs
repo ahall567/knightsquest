@@ -59,7 +59,7 @@ namespace KnightsQuest.Weapons
             anim.SetBool("active", false);
 
             CurrentAttackCounter++;
-            // attackCounterResetTimer.StartTimer();
+            attackCounterResetTimer.StartTimer();
 
             OnExit?.Invoke();
         }
@@ -85,21 +85,25 @@ namespace KnightsQuest.Weapons
 
         private void ResetAttackCounter() => CurrentAttackCounter = 0;
 
-        private void StartRecovery()
-        {
-            CurrentAttackCounter++;
-        }
+        // private void StartRecovery()
+        // {
+        //     Debug.Log("Recovery Started");
+        //     CurrentAttackCounter++;
+        // }
 
         private void OnEnable()
         {
             EventHandler.OnFinish += Exit;
-            EventHandler.OnRecoveryFinish += ResetAttackCounter;
-            //attackCounterResetTimer.OnTimerDone += ResetAttackCounter;
+            // EventHandler.OnRecoveryStart += StartRecovery;
+            // EventHandler.OnRecoveryFinish += ResetAttackCounter;
+            attackCounterResetTimer.OnTimerDone += ResetAttackCounter;
         }
 
         private void OnDisable()
         {
             EventHandler.OnFinish -= Exit;
+            // EventHandler.OnRecoveryStart -= StartRecovery;
+            // EventHandler.OnRecoveryFinish -= ResetAttackCounter;
             attackCounterResetTimer.OnTimerDone -= ResetAttackCounter;
         }
     }
