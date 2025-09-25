@@ -28,7 +28,7 @@ public class PlayerAttackState : PlayerAbilityState
 
     private void ExitHandler()
     {
-        AnimationFinishTrigger();
+        //AnimationFinishTrigger();
         isAbilityDone = true;
     }
 }

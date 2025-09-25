@@ -32,38 +32,6 @@ namespace KnightsQuest.Weapons
 
         private Timer attackCounterResetTimer;
 
-        public void Enter()
-        {
-            print($"{transform.name} enter");
-
-            attackCounterResetTimer.StopTimer();
-
-            anim.SetBool("active", true);
-            anim.SetInteger("counter", CurrentAttackCounter);
-
-            OnEnter?.Invoke();
-        }
-
-        public void SetCore(Core core)
-        {
-            Core = core;
-        }
-
-        public void SetData(WeaponDataSO data)
-        {
-            Data = data;
-        }
-
-        private void Exit()
-        {
-            anim.SetBool("active", false);
-
-            CurrentAttackCounter++;
-            attackCounterResetTimer.StartTimer();
-
-            OnExit?.Invoke();
-        }
-
         private void Awake()
         {
             // Get the Base game object from PrimaryWeapon
@@ -78,18 +46,62 @@ namespace KnightsQuest.Weapons
             attackCounterResetTimer = new Timer(attackCounterResetCooldown);
         }
 
+        public void Enter()
+        {
+            print($"{transform.name} enter");
+
+            attackCounterResetTimer.StopTimer();
+
+            anim.SetBool("active", true);
+            anim.SetInteger("counter", CurrentAttackCounter);
+
+            ChangeState("windup");
+
+            OnEnter?.Invoke();
+        }
+
+        public void SetCore(Core core)
+        {
+            Core = core;
+        }
+
+        public void SetData(WeaponDataSO data)
+        {
+            Data = data;
+        }
+
+        private void ChangeState(string newState)
+        {
+            anim.SetBool($"{newState}", true);
+
+            Debug.Log($"{newState} enter");
+        }
+
+        private void ChangeState(string currentState, string newState)
+        {
+            anim.SetBool($"{currentState}", false);
+            anim.SetBool($"{newState}", true);
+
+            Debug.Log($"{newState} enter");
+
+        }
+
+        private void Exit()
+        {
+            anim.SetBool("active", false);
+
+            CurrentAttackCounter++;
+            attackCounterResetTimer.StartTimer();
+
+            OnExit?.Invoke();
+        }
+
         private void Update()
         {
             attackCounterResetTimer.Tick();
         }
 
         private void ResetAttackCounter() => CurrentAttackCounter = 0;
-
-        // private void StartRecovery()
-        // {
-        //     Debug.Log("Recovery Started");
-        //     CurrentAttackCounter++;
-        // }
 
         private void OnEnable()
         {

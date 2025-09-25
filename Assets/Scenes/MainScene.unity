@@ -443,6 +443,14 @@ PrefabInstance:
       propertyPath: 'weaponSprites.Array.data[2].<Sprites>k__BackingField.Array.data[4]'
       value: 
       objectReference: {fileID: 1676215412216277647, guid: a102feeb9b157cd4c88035d99e67e521, type: 3}
+    - target: {fileID: 7016198836691699945, guid: 9728a7f2a15d41846bc5f1eb7f732ab3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7016198836691699945, guid: 9728a7f2a15d41846bc5f1eb7f732ab3, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8302068774422198104, guid: 9728a7f2a15d41846bc5f1eb7f732ab3, type: 3}
       propertyPath: m_Name
       value: SecondaryWeapon
