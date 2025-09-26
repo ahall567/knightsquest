@@ -19,6 +19,20 @@ public class PlayerAttackState : PlayerAbilityState
         weapon.OnExit += ExitHandler;
     }
 
+    public override void LogicUpdate()
+    {
+        base.LogicUpdate();
+
+        // Get attack inputs
+        bool attackInputs = player.InputHandler.AttackInputs[(int)CombatInputs.primary];
+
+        // If combat input is received while weapon is in recovery state, attack again
+        if (attackInputs && weapon.StateMachine.CurrentState == weapon.RecoveryState)
+        {
+            weapon.Enter();
+        }
+    }
+
     public override void Enter()
     {
         base.Enter();
@@ -28,7 +42,7 @@ public class PlayerAttackState : PlayerAbilityState
 
     private void ExitHandler()
     {
-        //AnimationFinishTrigger();
+        AnimationFinishTrigger();
         isAbilityDone = true;
     }
 }

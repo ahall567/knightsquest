@@ -14,7 +14,6 @@ public class PlayerStoppingState : PlayerGroundedState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Stopping State");
     }
 
     public override void Exit()

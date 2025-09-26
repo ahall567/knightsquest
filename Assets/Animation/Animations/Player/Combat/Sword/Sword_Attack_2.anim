@@ -28,7 +28,7 @@ AnimationClip:
       value: {fileID: 1819461034480276614, guid: 0c2a43b8225315a47b556b7242945c6c, type: 3}
     - time: 0.4
       value: {fileID: -6724922479007504189, guid: 0c2a43b8225315a47b556b7242945c6c, type: 3}
-    - time: 0.53333336
+    - time: 0.6
       value: {fileID: -1194945892737723690, guid: 0c2a43b8225315a47b556b7242945c6c, type: 3}
     attribute: m_Sprite
     path: 
@@ -62,7 +62,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6
+    m_StopTime: 0.6666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -96,6 +96,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.2
+    functionName: WindupFinishTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.26666668
     functionName: AttackActionTrigger
     data: 
@@ -110,7 +117,21 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.6
+  - time: 0.4
+    functionName: SwingFinishTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.6666667
+    functionName: RecoveryFinishTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.6666667
     functionName: AnimationFinishedTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
