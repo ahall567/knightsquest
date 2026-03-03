@@ -3,7 +3,6 @@ using System.Linq;
 using System.Collections.Generic;
 using KnightsQuest.Weapons.Components;
 using UnityEngine;
-using Mono.Cecil;
 
 namespace KnightsQuest.Weapons
 {

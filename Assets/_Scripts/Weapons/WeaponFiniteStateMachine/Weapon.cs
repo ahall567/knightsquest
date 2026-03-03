@@ -5,8 +5,14 @@ using KnightsQuest.CoreSystem;
 
 namespace KnightsQuest.Weapons
 {
+    /// <summary>
+    /// The central controller for weapon logic.
+    /// Manages the combat state machine and bridges the gap between animations and data.
+    /// </summary>
     public class Weapon : MonoBehaviour
     {
+        [Header("Settings")]
+        [Tooltip("Time in seconds before the attack combo counter resets to zero.")]
         [SerializeField] private float attackCounterResetCooldown;
 
         #region State Variables
@@ -32,7 +38,7 @@ namespace KnightsQuest.Weapons
         public Animator Anim;
 
         public GameObject BaseGameObject { get; private set; }
-        public GameObject WeaponSpriteGameObject { get;  private set; }
+        public GameObject WeaponSpriteGameObject { get; private set; }
         public AnimationEventHandler EventHandler { get; private set; }
 
         public Core Core { get; private set; }
