@@ -9,7 +9,7 @@ namespace KnightsQuest.Weapons.Components
         protected override void SetComponentDependency()
         {
             // Set Component Depency to Movement
-            ComponentDependency = typeof(Movement);
+            ComponentDependency = typeof(MovementComponent);
         }
     }
 }

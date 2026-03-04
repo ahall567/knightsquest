@@ -9,7 +9,7 @@ namespace KnightsQuest.Weapons.Components
     /// </summary>
     public class DamageComponent : WeaponComponent<DamageData, AttackDamage>
     {
-        private ActionHitBox hitBox;
+        private ActionHitBoxComponent hitBox;
 
         /// <summary>
         /// Triggered by ActionHitBox when it overlaps with physics colliders.
@@ -30,7 +30,7 @@ namespace KnightsQuest.Weapons.Components
         {
             base.Start();
 
-            hitBox = GetComponent<ActionHitBox>();
+            hitBox = GetComponent<ActionHitBoxComponent>();
 
             // Subscribe to OnDetectCollider2D Event
             hitBox.OnDetectCollider2D += HandleDetectCollider2D;

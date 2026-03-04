@@ -9,7 +9,7 @@ namespace KnightsQuest.Weapons.Components
         protected override void SetComponentDependency()
         {
             // Set dependency to PoiseDamage
-            ComponentDependency = typeof(PoiseDamage);
+            ComponentDependency = typeof(PoiseDamageComponent);
         }
     }
 }

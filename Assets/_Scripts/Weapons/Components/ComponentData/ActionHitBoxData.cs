@@ -10,8 +10,7 @@ namespace KnightsQuest.Weapons.Components
 
         protected override void SetComponentDependency()
         {
-            // Set Component Dependency to ActionHitBox
-            ComponentDependency = typeof(ActionHitBox);
+            ComponentDependency = typeof(ActionHitBoxComponent);
         }
     }
 }

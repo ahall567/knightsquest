@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace KnightsQuest.Weapons.Components
 {
-    public class PoiseDamage : WeaponComponent<PoiseDamageData, AttackPoiseDamage>
+    public class PoiseDamageComponent : WeaponComponent<PoiseDamageData, AttackPoiseDamage>
     {
-        private ActionHitBox hitBox;
+        private ActionHitBoxComponent hitBox;
 
         private void HandleDetectCollider2D(Collider2D[] colliders)
         {
@@ -25,7 +25,7 @@ namespace KnightsQuest.Weapons.Components
             base.Start();
 
             // Get reference to the hitbox
-            hitBox = GetComponent<ActionHitBox>();
+            hitBox = GetComponent<ActionHitBoxComponent>();
 
             // Subscribe to OnDetectCollider2D event with handler
             hitBox.OnDetectCollider2D += HandleDetectCollider2D;

@@ -9,7 +9,7 @@ namespace KnightsQuest.Weapons.Components
         protected override void SetComponentDependency()
         {
             // Set Component Dependency to WeaponSprite
-            ComponentDependency = typeof(WeaponSprite);
+            ComponentDependency = typeof(WeaponSpriteComponent);
         }
     }
 }

@@ -1,12 +1,9 @@
-using System;
-using System.ComponentModel;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace KnightsQuest.Weapons.Components
 {
     // Inherits from the WeaponComponent class, specifying WeaponSpriteData as the type
-    public class WeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprites>
+    public class WeaponSpriteComponent : WeaponComponent<WeaponSpriteData, AttackSprites>
     {
         private SpriteRenderer baseSpriteRenderer;
         private SpriteRenderer weaponSpriteRenderer;
@@ -29,7 +26,7 @@ namespace KnightsQuest.Weapons.Components
                 return;
             }
 
-            var currentAttackSprites =currentAttackData.Sprites;
+            var currentAttackSprites = currentAttackData.Sprites;
 
             if (currentWeaponSpriteIndex >= currentAttackSprites.Length)
             {

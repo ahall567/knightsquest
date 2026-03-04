@@ -9,7 +9,7 @@ namespace KnightsQuest.Weapons.Components
         protected override void SetComponentDependency()
         {
             // Set Component Dependency to KnockBack
-            ComponentDependency = typeof(KnockBack);
+            ComponentDependency = typeof(KnockBackComponent);
         }
     }
 }
