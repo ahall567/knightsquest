@@ -16,13 +16,45 @@ MonoBehaviour:
   <ComponentData>k__BackingField:
   - rid: 8883907085819707480
   - rid: 8883907085819707487
-  - rid: 8883907219826409566
   - rid: 8883907244611076172
   - rid: 8883907244611076195
   - rid: 8883907244611076205
+  - rid: 8540224679813054538
   references:
     version: 2
     RefIds:
+    - rid: 8540224679813054538
+      type: {class: HitBoxData, ns: KnightsQuest.Weapons.Components, asm: Assembly-CSharp}
+      data:
+        name: HitBoxData
+        attackData:
+        - name: Attack 1
+          Debug: 1
+          <HitBox>k__BackingField:
+            serializedVersion: 2
+            x: 1
+            y: 1
+            width: 3
+            height: 3
+        - name: Attack 2
+          Debug: 0
+          <HitBox>k__BackingField:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+        - name: Attack 3
+          Debug: 0
+          <HitBox>k__BackingField:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+        <DetectableLayers>k__BackingField:
+          serializedVersion: 2
+          m_Bits: 512
     - rid: 8883907085819707480
       type: {class: WeaponSpriteData, ns: KnightsQuest.Weapons.Components, asm: Assembly-CSharp}
       data:
@@ -63,38 +95,6 @@ MonoBehaviour:
         - name: Attack 3
           <Direction>k__BackingField: {x: 1, y: 5}
           <Velocity>k__BackingField: 5
-    - rid: 8883907219826409566
-      type: {class: ActionHitBoxData, ns: KnightsQuest.Weapons.Components, asm: Assembly-CSharp}
-      data:
-        name: ActionHitBoxData
-        attackData:
-        - name: Attack 1
-          Debug: 1
-          <HitBox>k__BackingField:
-            serializedVersion: 2
-            x: 0.13
-            y: -1.03
-            width: 1.61
-            height: 1.72
-        - name: Attack 2
-          Debug: 0
-          <HitBox>k__BackingField:
-            serializedVersion: 2
-            x: 0.13
-            y: -1.03
-            width: 1.96
-            height: 1.86
-        - name: Attack 3
-          Debug: 0
-          <HitBox>k__BackingField:
-            serializedVersion: 2
-            x: 0.13
-            y: -1.03
-            width: 1.59
-            height: 3
-        <DetectableLayers>k__BackingField:
-          serializedVersion: 2
-          m_Bits: 512
     - rid: 8883907244611076172
       type: {class: DamageData, ns: KnightsQuest.Weapons.Components, asm: Assembly-CSharp}
       data:
