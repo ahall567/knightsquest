@@ -14,8 +14,10 @@ namespace KnightsQuest.Weapons
             base.Enter();
         }
 
-        public void ExitHandler()
+        public override void ExitHandler()
         {
+            base.ExitHandler();
+
             stateMachine.ChangeState(weapon.RecoveryState);
         }
     }

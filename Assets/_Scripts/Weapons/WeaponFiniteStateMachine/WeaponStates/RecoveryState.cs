@@ -21,8 +21,10 @@ namespace KnightsQuest.Weapons
             base.Exit();
         }
 
-        public void ExitHandler()
+        public override void ExitHandler()
         {
+            base.ExitHandler();
+
             // If animation makes it here, reset attack counter to break the combo
             weapon.ResetAttackCounter();
         }
