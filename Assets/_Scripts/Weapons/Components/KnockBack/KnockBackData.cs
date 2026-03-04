@@ -4,12 +4,12 @@ using UnityEngine;
 namespace KnightsQuest.Weapons.Components
 {
     [Serializable]
-    public class PoiseDamageData : ComponentData<AttackPoiseDamage>
+    public class KnockBackData : ComponentData<KnockBackStep>
     {
         protected override void SetComponentDependency()
         {
-            // Set dependency to PoiseDamage
-            ComponentDependency = typeof(PoiseDamageComponent);
+            // Set Component Dependency to KnockBack
+            ComponentDependency = typeof(KnockBackComponent);
         }
     }
 }

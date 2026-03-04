@@ -4,7 +4,7 @@ using UnityEngine;
 namespace KnightsQuest.Weapons.Components
 {
     [Serializable]
-    public class AttackMovement : AttackData
+    public class MovementStep : AttackData
     {
         [field: SerializeField] public Vector2 Direction { get; private set; }
         [field: SerializeField] public float Velocity { get; private set; }

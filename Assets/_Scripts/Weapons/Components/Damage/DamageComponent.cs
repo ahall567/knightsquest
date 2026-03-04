@@ -7,9 +7,9 @@ namespace KnightsQuest.Weapons.Components
     /// Logic component responsible for detecting damageable entities within a hitbox
     /// and applying the damage amount defined in WeaponDataSO.
     /// </summary>
-    public class DamageComponent : WeaponComponent<DamageData, AttackDamage>
+    public class DamageComponent : WeaponComponent<DamageData, DamageStep>
     {
-        private ActionHitBoxComponent hitBox;
+        private HitBoxComponent hitBox;
 
         /// <summary>
         /// Triggered by ActionHitBox when it overlaps with physics colliders.
@@ -30,7 +30,7 @@ namespace KnightsQuest.Weapons.Components
         {
             base.Start();
 
-            hitBox = GetComponent<ActionHitBoxComponent>();
+            hitBox = GetComponent<HitBoxComponent>();
 
             // Subscribe to OnDetectCollider2D Event
             hitBox.OnDetectCollider2D += HandleDetectCollider2D;

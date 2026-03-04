@@ -4,12 +4,12 @@ using UnityEngine;
 namespace KnightsQuest.Weapons.Components
 {
     [Serializable]
-    public class WeaponSpriteData : ComponentData<AttackSprites>
+    public class PoiseDamageData : ComponentData<PoiseDamageStep>
     {
         protected override void SetComponentDependency()
         {
-            // Set Component Dependency to WeaponSprite
-            ComponentDependency = typeof(WeaponSpriteComponent);
+            // Set dependency to PoiseDamage
+            ComponentDependency = typeof(PoiseDamageComponent);
         }
     }
 }

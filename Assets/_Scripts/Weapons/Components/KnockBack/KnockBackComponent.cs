@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace KnightsQuest.Weapons.Components
 {
-    public class KnockBackComponent : WeaponComponent<KnockBackData, AttackKnockBack>
+    public class KnockBackComponent : WeaponComponent<KnockBackData, KnockBackStep>
     {
-        private ActionHitBoxComponent hitBox;
+        private HitBoxComponent hitBox;
 
         private CoreSystem.Movement movement;
 
@@ -26,7 +26,7 @@ namespace KnightsQuest.Weapons.Components
         {
             base.Start();
 
-            hitBox = GetComponent<ActionHitBoxComponent>();
+            hitBox = GetComponent<HitBoxComponent>();
 
             // Subscribe to OnDetectCollider2D event with handler function
             hitBox.OnDetectCollider2D += HandleDetectCollider2D;

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace KnightsQuest.Weapons.Components
 {
-    public class MovementComponent : WeaponComponent<MovementData, AttackMovement>
+    public class MovementComponent : WeaponComponent<MovementData, MovementStep>
     {
         private CoreSystem.Movement coreMovement;
         private CoreSystem.Movement CoreMovement { get => coreMovement ??= Core.GetCoreComponent<CoreSystem.Movement>(); }

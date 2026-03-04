@@ -4,7 +4,7 @@ using UnityEngine;
 namespace KnightsQuest.Weapons.Components
 {
     [Serializable]
-    public class AttackActionHitBox : AttackData
+    public class HitBoxStep : AttackData
     {
         // Debug is used to toggle drawing of gizmos in Unity
         public bool Debug;

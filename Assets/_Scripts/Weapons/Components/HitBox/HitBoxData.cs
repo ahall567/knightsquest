@@ -4,13 +4,13 @@ using UnityEngine;
 namespace KnightsQuest.Weapons.Components
 {
     [Serializable]
-    public class ActionHitBoxData : ComponentData<AttackActionHitBox>
+    public class HitBoxData : ComponentData<HitBoxStep>
     {
         [field: SerializeField] public LayerMask DetectableLayers { get; private set; }
 
         protected override void SetComponentDependency()
         {
-            ComponentDependency = typeof(ActionHitBoxComponent);
+            ComponentDependency = typeof(HitBoxComponent);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace KnightsQuest.Weapons.Components
     /// Handles the physical detection of targets in the game world.
     /// Calculates a 2D overlap at a specific frame of animation and notifies listeners.
     /// </summary>
-    public class ActionHitBoxComponent : WeaponComponent<ActionHitBoxData, AttackActionHitBox>
+    public class HitBoxComponent : WeaponComponent<HitBoxData, HitBoxStep>
     {
         /// <summary>Broadcastst a list of all colliders caught in the hitbox this frame.</summary>
         public event Action<Collider2D[]> OnDetectCollider2D;

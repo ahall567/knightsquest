@@ -3,7 +3,7 @@ using UnityEngine;
 namespace KnightsQuest.Weapons.Components
 {
     // Inherits from the WeaponComponent class, specifying WeaponSpriteData as the type
-    public class WeaponSpriteComponent : WeaponComponent<WeaponSpriteData, AttackSprites>
+    public class WeaponSpriteComponent : WeaponComponent<WeaponSpriteData, SpritesStep>
     {
         private SpriteRenderer baseSpriteRenderer;
         private SpriteRenderer weaponSpriteRenderer;

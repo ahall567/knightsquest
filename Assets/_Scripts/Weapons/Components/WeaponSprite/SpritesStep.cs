@@ -4,7 +4,7 @@ using UnityEngine;
 namespace KnightsQuest.Weapons.Components
 {
     [Serializable]
-    public class AttackSprites : AttackData
+    public class SpritesStep : AttackData
     {
         [field: SerializeField] public Sprite[] Sprites { get; private set; }
     }
